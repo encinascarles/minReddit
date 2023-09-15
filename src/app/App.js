@@ -1,13 +1,27 @@
 import React from 'react';
-import { Counter } from '../features/counter/Counter';
 import './App.module.css';
 import NavBar from '../components/NavBar/NavBar';
-import {tema} from './theme';
-import { ThemeProvider } from '@mui/material';
+import { ThemeProvider, createTheme } from '@mui/material';
+import { selectTheme } from '../theme/themeSlice';
+import { useSelector } from 'react-redux';
 
 
 
 function App() {
+  const mode = useSelector(selectTheme).mode;
+  const tema = createTheme({
+    palette: {
+      mode: mode,
+      primary: {
+        main: '#ff3d00',
+      },
+      secondary: {
+        main: '#78909c',
+      },
+    }
+  });
+
+
   return (
     <div className="App">
       <header className="App-header">
