@@ -1,20 +1,27 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  mode: 'dark',
-};
+    palette: {
+      mode: "dark",
+      primary: {
+        main: '#ff3d00',
+      },
+      secondary: {
+        main: '#78909c',
+      },
+    }
+  }
 
 export const themeSlice = createSlice({
   name: 'theme',
   initialState,
-  
   reducers: {
     toggleMode: (state) => {
-        if(state.mode === 'dark'){
-            state.mode = 'light';
+        if(state.palette.mode === 'dark'){
+            state.palette.mode = 'light';
         }
         else{
-            state.mode = 'dark';
+            state.palette.mode = 'dark';
         }
     }
   },

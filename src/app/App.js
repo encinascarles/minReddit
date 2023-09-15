@@ -8,19 +8,7 @@ import { useSelector } from 'react-redux';
 
 
 function App() {
-  const mode = useSelector(selectTheme).mode;
-  const tema = createTheme({
-    palette: {
-      mode: mode,
-      primary: {
-        main: '#ff3d00',
-      },
-      secondary: {
-        main: '#78909c',
-      },
-    }
-  });
-
+  const tema = createTheme(useSelector(selectTheme));
 
   return (
     <div className="App">
