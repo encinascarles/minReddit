@@ -1,10 +1,13 @@
+import { AppBar, Toolbar, Typography } from '@mui/material';
 import React from 'react';
 
 function NavBar(){
     return (
-        <div>
-        <h1>NavBar</h1>
-        </div>
+        <AppBar position="static">
+            <Toolbar>
+                <Typography variant="h4" component="a"> minReddit </Typography>
+            </Toolbar>
+        </AppBar>
     );
 }
 
