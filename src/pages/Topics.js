@@ -1,23 +1,24 @@
 import { createTheme } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import getRedditData from "../util/redditAPI";
 import style from "./Topics.module.css";
 import NavBar from "../components/NavBar/NavBar";
 import NavDrawer from "../components/NavDrawer/NavDrawer";
-
+import TopicsContainer from "../components/TopicsContainer/TopicsContainer";
+import { setTopics } from "../components/TopicsContainer/topicsSlice";
 
 
 export default function Topics() {
     const {id}= useParams()
-    const [data, setData] = useState(null)
+    const dispatch = useDispatch()
     
     
     useEffect( () => {
         getRedditData(id)
         .then(res => {
-            setData(res)
+            dispatch(setTopics(res))
             console.log(res)
         })
     },[])
@@ -25,8 +26,7 @@ export default function Topics() {
     return (
         <div className={style.messagesContainer}>
             <NavDrawer />
-            <h1>Topics</h1>
-            <h1>{data && data[0].title}</h1>
+            <TopicsContainer />
         </div>
     );
 }
