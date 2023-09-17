@@ -8,6 +8,7 @@ import { Route, Routes } from "react-router-dom";
 import Topics from "../pages/Topics";
 import Home from "../pages/Home";
 import CssBaseline from "@mui/material/CssBaseline";
+import NavDrawer from "../components/NavDrawer/NavDrawer";
 
 function App() {
   const tema = createTheme(useSelector(selectTheme));

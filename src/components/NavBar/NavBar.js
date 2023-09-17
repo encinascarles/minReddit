@@ -16,7 +16,7 @@ function NavBar(){
     }
 
     return (
-        <AppBar position="static">
+        <AppBar position="static" >
             <Toolbar className={styles.toolbar}>
                 <Typography variant="h4" component="a" className={styles.logo}> minReddit </Typography>
                 <IconButton sx={{ ml: 1 }} onClick={handleClick} color="inherit">
