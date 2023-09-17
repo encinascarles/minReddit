@@ -1,3 +1,4 @@
+import { Card, CardHeader } from "@mui/material";
 import React, { useEffect, useState } from "react";
 
 export default function TopicCard(props) {
@@ -9,8 +10,9 @@ export default function TopicCard(props) {
   }, [props.data]);
   return (
     <div>
-      <h1>prova</h1>
-     <h1>{data.title}</h1>
+      <Card>
+        <CardHeader title={data&&data.title} />
+      </Card>
     </div>
   );
 }
