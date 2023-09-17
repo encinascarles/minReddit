@@ -10,6 +10,7 @@ export default function Topics() {
     const {id}= useParams()
     const [data, setData] = useState(null)
     
+    
     useEffect( () => {
         getRedditData(id)
         .then(res => {
