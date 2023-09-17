@@ -19,7 +19,6 @@ export default function Topics() {
         getRedditData(id)
         .then(res => {
             dispatch(setTopics(res))
-            console.log(res)
         })
     },[])
 

@@ -1,4 +1,4 @@
-import { Card, CardHeader } from "@mui/material";
+import { Avatar, Card, CardHeader, CardMedia } from "@mui/material";
 import React, { useEffect, useState } from "react";
 
 export default function TopicCard(props) {
@@ -11,7 +11,17 @@ export default function TopicCard(props) {
   return (
     <div>
       <Card>
-        <CardHeader title={data&&data.title} />
+        <CardHeader
+          avatar={data ?
+            (<Avatar>
+              {data.author[0]}
+            </Avatar>) : null
+          }
+          title={data && data.title}
+          subheader = {data && data.author}
+        />
+        {data.thumbnail && (<CardMedia component="img" image={data && data.thumbnail} />)}
+        
       </Card>
     </div>
   );
