@@ -20,7 +20,7 @@ export default function TopicCard(props) {
           title={data && data.title}
           subheader = {data && data.author}
         />
-        {data.thumbnail && (<CardMedia component="img" image={data && data.thumbnail} />)}
+        {data && data.thumbnail && (<CardMedia component="img" image={data && data.thumbnail} />)}
         
       </Card>
     </div>
