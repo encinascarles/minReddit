@@ -19,7 +19,7 @@ function NavBar(){
             <Toolbar>
                 <Typography variant="h4" component="a"> minReddit </Typography>
                 <IconButton sx={{ ml: 1 }} onClick={handleClick} color="inherit">
-                    {useSelector(selectTheme).mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+                    {useSelector(selectTheme).palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
                 </IconButton>
             </Toolbar>
         </AppBar>
