@@ -17,18 +17,28 @@ async function getRedditData (subreddit) {
         return data.data.children
     })
     .then(children => children.map(child => {
-        const { title, permalink, url, author, created_utc, num_comments, ups, downs, thumbnail } = child.data
+        const { post_hint, title, permalink, url, author, created_utc, num_comments, ups, downs, thumbnail } = child.data
+        let media = "null"
+        if (post_hint === "image") {
+            media = url
+        } else if (post_hint === "hosted:video") {
+            media = child.data.media.reddit_video.fallback_url
+        }
+
+
         
+
         return {
+            media_type: post_hint,
             title,
             permalink,
-            url,
             author,
             created_utc,
             num_comments,
             ups,
             downs,
-            thumbnail
+            thumbnail,
+            media
         }
     
     }))

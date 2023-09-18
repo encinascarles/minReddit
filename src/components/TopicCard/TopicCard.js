@@ -8,20 +8,27 @@ export default function TopicCard(props) {
       setData(props.data);
     }
   }, [props.data]);
+
+  function CardMediaProc() {
+    if (data.media_type === "image"){
+        return <CardMedia component="img" image={data && data.media} />
+    } else if (data.media_type === "hosted:video") {
+        return <CardMedia component="video" src={data && data.media} controls />
+    }
+
+  }
+
   return (
     <div>
       <Card>
         <CardHeader
-          avatar={data ?
-            (<Avatar>
-              {data.author[0]}
-            </Avatar>) : null
-          }
+          avatar={data ? <Avatar>{data.author[0]}</Avatar> : null}
           title={data && data.title}
-          subheader = {data && data.author}
+          subheader={data && data.author}
         />
-        {data && data.thumbnail && (<CardMedia component="img" image={data && data.thumbnail} />)}
-        
+        {data && data.thumbnail && (
+            <CardMediaProc />
+        )}
       </Card>
     </div>
   );
